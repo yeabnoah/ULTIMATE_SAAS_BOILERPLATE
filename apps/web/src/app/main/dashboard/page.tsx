@@ -5,7 +5,7 @@ import { trpc } from "@/utils/trpc";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import client from "../../../../server/polar/polar";
+import client from "../../../../../server/polar/polar";
 
 export default function Dashboard() {
 	const router = useRouter();

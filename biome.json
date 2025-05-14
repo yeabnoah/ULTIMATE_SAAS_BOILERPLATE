@@ -18,7 +18,16 @@
 			"src-tauri",
 			".nuxt",
 			"prisma",
-			"+html.tsx"
+			"+html.tsx",
+			"features-8.tsx",
+			"spotlight.tsx",
+			"infinite-slider.tsx",
+			"header.tsx",
+			"logo-cloud.tsx",
+			"text-effect.tsx",
+			"animated-group.tsx",
+			"hero-section.tsx",
+			"progressive-blur.tsx"
 		]
 	},
 	"formatter": {
