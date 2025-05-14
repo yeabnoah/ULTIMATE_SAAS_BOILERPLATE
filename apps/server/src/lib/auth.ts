@@ -8,7 +8,10 @@ export const auth = betterAuth({
 	database: prismaAdapter(prisma, {
 		provider: "postgresql",
 	}),
-	trustedOrigins: [process.env.CORS_ORIGIN || ""],
+	trustedOrigins: [
+		process.env.CORS_ORIGIN || "",
+		"https://5094-2a09-bac1-2420-8-00-3b7-5b.ngrok-free.app/api/auth/polar/webhooks",
+	],
 	emailAndPassword: {
 		enabled: true,
 	},
@@ -31,7 +34,7 @@ export const auth = betterAuth({
 						slug: "pro",
 					},
 					{
-						productId: process.env.POLAR_INTERPRISE_PLAN_PRODUCT_ID as string,
+						productId: process.env.POLAR_ENTERPRISE_PLAN_PRODUCT_ID as string,
 						slug: "enterprise",
 					},
 				],
@@ -42,18 +45,18 @@ export const auth = betterAuth({
 			webhooks: {
 				secret: process.env.POLAR_WEBHOOK_SECRET as string,
 
-				onCustomerCreated: async (payload) => {
-					console.log("polar curstomer created");
-				},
-
-				onSubscriptionActive: async (payload) => {
-					console.log(" user is subscribed");
-					console.log("onSubscription Active", payload.data.customerId);
-				},
-
-				onSubscriptionRevoked: async (payload) => {
-					console.log(" user is unsubscribed");
-					console.log("Revoke Subscription", payload.data.customerId);
+				onPayload: async (payload) => {
+					switch (payload.type) {
+						case "customer.state_changed":
+							console.log("Customer state changed: ", payload.type);
+							break;
+						case "subscription.created":
+							console.log("Subscription created: ", payload.type);
+							break;
+						case "subscription.canceled":
+							console.log("Subscription cancelled: ", payload.type);
+							break;
+					}
 				},
 			},
 		}),

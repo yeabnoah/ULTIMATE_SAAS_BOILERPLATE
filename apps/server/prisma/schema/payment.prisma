@@ -1,29 +1,30 @@
 model Subscription {
-    id        String    @id @map("_id")
-    userId    String
-    plan      plan?
-    status    status    @default(unpaid) // e.g., active, canceled, pending
-    startedAt DateTime  @default(now())
-    endedAt   DateTime?
-    user      User      @relation(fields: [userId], references: [id])
+    id                 String    @id @default(uuid())
+    userId             String?   @map("user_id")
+    customerId         String?   @map("customer_id")
+    subscriptionId     String?   @map("subscription_id")
+    productId          String    @map("product_id")
+    status             String    @default("active")
+    currentPeriodStart DateTime  @default(now()) @map("current_period_start")
+    currentPeriodEnd   DateTime? @map("current_period_end")
+    createdAt          DateTime  @default(now()) @map("created_at")
+    updatedAt          DateTime  @default(now()) @map("updated_at")
 
-    @@map("subscription")
+    user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@map("subscriptions")
 }
 
-enum plan {
-    free
-    pro
-    standard
-    enterprise
-}
+model Payment {
+    id            String   @id @default(uuid())
+    userId        String?  @map("user_id")
+    amount        Decimal  @db.Decimal(10, 2)
+    paymentMethod String?  @map("payment_method")
+    status        String   @default("completed")
+    createdAt     DateTime @default(now()) @map("created_at")
+    updatedAt     DateTime @default(now()) @map("updated_at")
 
-enum status {
-    active
-    canceled
-    pending
-    trialing
-    past_due
-    unpaid
-    incomplete
-    incomplete_expired
+    user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@map("payments")
 }
