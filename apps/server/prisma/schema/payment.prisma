@@ -1,0 +1,29 @@
+model Subscription {
+    id        String    @id @map("_id")
+    userId    String
+    plan      plan?
+    status    status    @default(unpaid) // e.g., active, canceled, pending
+    startedAt DateTime  @default(now())
+    endedAt   DateTime?
+    user      User      @relation(fields: [userId], references: [id])
+
+    @@map("subscription")
+}
+
+enum plan {
+    free
+    pro
+    standard
+    enterprise
+}
+
+enum status {
+    active
+    canceled
+    pending
+    trialing
+    past_due
+    unpaid
+    incomplete
+    incomplete_expired
+}

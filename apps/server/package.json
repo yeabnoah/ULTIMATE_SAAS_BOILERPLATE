@@ -1,0 +1,38 @@
+{
+	"name": "server",
+	"main": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"build": "tsc && tsc-alias",
+		"check-types": "tsc --noEmit",
+		"compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server",
+		"dev": "bun run --hot src/index.ts",
+		"start": "bun run dist/src/index.js",
+		"db:push": "prisma db push --schema ./prisma/schema",
+		"db:studio": "prisma studio",
+		"db:generate": "prisma generate --schema ./prisma/schema",
+		"db:migrate": "prisma migrate dev"
+	},
+	"prisma": {
+		"schema": "./schema"
+	},
+	"dependencies": {
+		"dotenv": "^16.4.7",
+		"zod": "^3.24.2",
+		"@trpc/server": "^11.0.0",
+		"@trpc/client": "^11.0.0",
+		"@hono/trpc-server": "^0.3.4",
+		"hono": "^4.7.6",
+		"@prisma/client": "^6.7.0",
+		"ai": "^4.2.8",
+		"@ai-sdk/google": "^1.2.3",
+		"better-auth": "^1.2.7",
+		"@better-auth/expo": "^1.2.7"
+	},
+	"devDependencies": {
+		"tsc-alias": "^1.8.11",
+		"typescript": "^5.8.2",
+		"@types/bun": "^1.2.6",
+		"prisma": "^6.7.0"
+	}
+}
