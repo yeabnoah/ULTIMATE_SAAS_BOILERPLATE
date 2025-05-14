@@ -1,37 +1,54 @@
-import { Activity, DraftingCompass, Mail, Zap } from "lucide-react";
+import {
+	Activity,
+	AppWindowIcon,
+	Brush,
+	BrushIcon,
+	DraftingCompass,
+	Key,
+	Lock,
+	LucideBrush,
+	Mail,
+	Monitor,
+	Smartphone,
+	Zap,
+} from "lucide-react";
 import Image from "next/image";
 
 export default function FeaturesSection() {
 	return (
-		<section className="py-16 md:py-32">
+		<section className="pt-10 pb-16 md:pt-24 md:pb-32">
 			<div className="mx-auto max-w-6xl px-6">
 				<div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
 					<div className="lg:col-span-2">
 						<div className="md:pr-6 lg:pr-0">
 							<h2 className="font-semibold text-4xl lg:text-5xl">
-								Built for Scaling teams
+								Built for Scaling SAAS Products
 							</h2>
 							<p className="mt-6">
-								Orrupti aut temporibus assumenda atque ab, accusamus sit,
-								molestiae veniam laboriosam pariatur.
+								Launch fast with battle-tested auth, billing, and a scalable
+								codebase — so you can grow without the setup hassle.
 							</p>
 						</div>
 						<ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
 							<li>
-								<Mail className="size-5" />
-								Email and web support
+								<AppWindowIcon className="size-5" />
+								Full stack web app using Next.js and Hono
 							</li>
 							<li>
-								<Zap className="size-5" />
-								Fast response time
+								<Smartphone className="size-5" />
+								MObile suppoer with React Native (Expo)
 							</li>
 							<li>
-								<Activity className="size-5" />
-								Menitoring and analytics
+								<Monitor className="size-5" />
+								Desktop app support with Tauri
 							</li>
 							<li>
-								<DraftingCompass className="size-5" />
-								Architectural review
+								<Lock className="size-5" />
+								Auth and payments with Better Auth & Polar
+							</li>
+							<li>
+								<Brush className="size-5" />
+								Design with Tailwind CSS and shadcn/ui
 							</li>
 						</ul>
 					</div>

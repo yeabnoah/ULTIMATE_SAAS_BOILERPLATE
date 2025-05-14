@@ -27,7 +27,17 @@
 			"text-effect.tsx",
 			"animated-group.tsx",
 			"hero-section.tsx",
-			"progressive-blur.tsx"
+			"progressive-blur.tsx",
+			"footer.tsx",
+			"integration.tsx",
+			"footer-section.tsx",
+			"MediaWiki.tsx",
+			"GooglePaLM.tsx",
+			"MagicUI.tsx",
+			"Replit.tsx",
+			"VSCodium.tsx",
+			"logo.tsx",
+			"integrations-5.tsx"
 		]
 	},
 	"formatter": {

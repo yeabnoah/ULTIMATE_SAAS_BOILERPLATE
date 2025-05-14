@@ -1,11 +1,9 @@
-import React from 'react'
-import { Mail, SendHorizonal } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { TextEffect } from '@/components/motion-primitives/text-effect'
 import { AnimatedGroup } from '@/components/ui/animated-group'
+import { Button } from '@/components/ui/button'
+import { Mail, SendHorizonal } from 'lucide-react'
 import { HeroHeader } from './header'
-import { LogoCloud } from './logo-cloud'
-import Image from 'next/image'
+import IntegrationsSection from './integration'
 
 const transitionVariants = {
     item: {
@@ -34,8 +32,8 @@ export default function HeroSection() {
 
             <main className="overflow-hidden [--color-primary-foreground:var(--color-white)] [--color-primary:var(--color-green-600)]">
                 <section>
-                    <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-32 lg:pt-48">
-                        <div className="relative z-10 mx-auto max-w-4xl text-center">
+                    <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-32 lg:pt-52">
+                        <div className="relative z-10 mx-auto w-full md:max-w-4xl text-center">
                             <TextEffect
                                 preset="fade-in-blur"
                                 speedSegment={0.3}
@@ -49,7 +47,7 @@ export default function HeroSection() {
                                 speedSegment={0.3}
                                 delay={0.5}
                                 as="p"
-                                className="mx-auto mt-6 max-w-2xl text-sm text-pretty md:text-lg">
+                                className="mx-auto mt-3 md:max-w-2xl w-full text-sm text-pretty md:text-lg">
                                 A modern, production-ready boilerplate to kickstart your SaaS product,built with best practices, authentication, billing, and dashboard all set up.
                             </TextEffect>
 
@@ -78,6 +76,8 @@ export default function HeroSection() {
                                             type="email"
                                         />
 
+                                       
+
                                         <div className="md:pr-1.5 lg:pr-0">
                                             <Button
                                                 aria-label="submit"
@@ -93,10 +93,12 @@ export default function HeroSection() {
                                     </div>
                                 </form>
 
-                                <div
+                                <IntegrationsSection />
+
+                                {/* <div
                                     aria-hidden
                                     className="bg-radial from-primary/50 dark:from-primary/25 relative mx-auto  md:mt-32 max-w-2xl to-transparent to-55% text-left">
-                                        {/* <Image src="/square.jpg" height={500} width={500} alt='test' className=' mx-auto' />
+                                      
                                     <div className="bg-background border-border/50 absolute inset-0 mx-auto w-80 -translate-x-3 -translate-y-12 rounded-[2rem] border p-2 [mask-image:linear-gradient(to_bottom,#000_50%,transparent_90%)] sm:-translate-x-6">
                                         <div className="relative h-96 overflow-hidden rounded-[1.5rem] border p-2 pb-12 before:absolute before:inset-0 before:bg-[repeating-linear-gradient(-45deg,var(--color-border),var(--color-border)_1px,transparent_1px,transparent_6px)] before:opacity-50"></div>
                                     </div>
@@ -106,14 +108,14 @@ export default function HeroSection() {
 
                                             <div className="bg-muted rounded-[1rem] p-4 pb-16 dark:bg-white/5"></div>
                                         </div>
-                                    </div> */}
+                                    </div>
                                     <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] mix-blend-overlay [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] dark:opacity-5"></div>
-                                </div>
+                                </div> */}
                             </AnimatedGroup>
                         </div>
                     </div>
                 </section>
-                <LogoCloud />
+               
             </main>
         </>
     )
