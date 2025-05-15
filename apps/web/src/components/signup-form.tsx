@@ -62,6 +62,24 @@ export function SignUpForm({
 		);
 	};
 
+	const handleGithubSignIn = async () => {
+		await authClient.signIn.social({
+			provider: "github",
+			callbackURL: "/dashboard",
+			fetchOptions: {
+				onRequest: () => {
+					toast.success("your request is on a process ...");
+				},
+				onSuccess: () => {
+					toast.success("successfully loggedIn ...");
+				},
+				onError: (ctx) => {
+					alert(ctx.error.message);
+				},
+			},
+		});
+	};
+
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
@@ -135,7 +153,11 @@ export function SignUpForm({
 					</span>
 				</div>
 				<div className=" mx-auto flex flex-row gap-4">
-					<Button variant="outline" className="w-fit cursor-pointer">
+					<Button
+						onClick={handleGithubSignIn}
+						variant="outline"
+						className="w-fit cursor-pointer"
+					>
 						<FaGithub size={24} />
 					</Button>
 					<Button variant="outline" className="w-fit cursor-pointer">
