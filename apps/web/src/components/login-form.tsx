@@ -10,7 +10,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { SubmitHandler } from "react-hook-form";
 import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa6";
+import {
+	FaApple,
+	FaEye,
+	FaEyeSlash,
+	FaGithub,
+	FaGoogle,
+	FaMicrosoft,
+} from "react-icons/fa6";
 import { toast } from "sonner";
 import type { loginType } from "zod-schema";
 import { loginSchema } from "zod-schema";
@@ -87,7 +94,7 @@ export function LoginForm({
 							{...register("password")}
 							id="password"
 							type={showPassword ? "text" : "password"}
-							placeholder="Create a password"
+							placeholder="your password"
 							required
 						/>
 						{errors.password && (
@@ -112,10 +119,20 @@ export function LoginForm({
 						Or continue with
 					</span>
 				</div>
-				<Button variant="outline" className="w-full cursor-pointer">
-					<FaGithub size={24} />
-					Login with GitHub
-				</Button>
+				<div className=" mx-auto flex flex-row gap-4">
+					<Button variant="outline" className="w-fit cursor-pointer">
+						<FaGithub size={24} />
+					</Button>
+					<Button variant="outline" className="w-fit cursor-pointer">
+						<FaGoogle size={24} />
+					</Button>
+					<Button variant="outline" className="w-fit cursor-pointer">
+						<FaApple size={24} />
+					</Button>
+					<Button variant="outline" className="w-fit cursor-pointer">
+						<FaMicrosoft size={24} />
+					</Button>
+				</div>
 			</div>
 			<div className="text-center text-sm">
 				Don&apos;t have an accoint?{" "}
