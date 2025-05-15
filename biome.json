@@ -37,7 +37,12 @@
 			"Replit.tsx",
 			"VSCodium.tsx",
 			"logo.tsx",
-			"integrations-5.tsx"
+			"integrations-5.tsx",
+			"sidebar.tsx",
+			"data-table.tsx",
+			"chart.tsx",
+			"breadcrumb.tsx",
+			"app-sidebar.tsx"
 		]
 	},
 	"formatter": {
